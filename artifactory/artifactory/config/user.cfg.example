@@ -1,0 +1,4 @@
+[artifactory]
+hostname = YOUR_ARTIFACTORY_URL
+user = YOUR_ARTIFACTORY_USERNAME
+password = YOUR_ARTIFACTORY_PASSWORD
