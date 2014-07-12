@@ -1,0 +1,3 @@
+*.pyc
+artifactory/artifactory.egg-info/
+artifactory_test/artifactory_test.egg-info/
