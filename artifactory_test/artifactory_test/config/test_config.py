@@ -13,14 +13,9 @@ class TestArtifactory(object):
 
         self.artifactory = Artifactory(hostname=hostname, user=user, password=password)
 
-    def test_all_builds(self):
+    def test_config(self):
         """
-        Successful call to all_builds()
+        Successful test reading config file for user= admin
         """
-        self.artifactory.all_builds()
-
-    def test_get_users(self):
-        """
-        Successful call to get_users()
-        """
-        self.artifactory.get_users()
+        conf = read_config("admin")
+        debug("config= {}".format(conf))

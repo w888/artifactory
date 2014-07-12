@@ -6,6 +6,7 @@ from urlparse import urljoin
 from logging import debug
 
 from ..util.logger_init import initialize_logger_console
+from ..util.util import debug_print
 
 class Artifactory(object):
     """
@@ -20,6 +21,19 @@ class Artifactory(object):
         self.user = user
         self.password = password
 
+    def all_builds(self):
+        """
+        Provides information on all builds
+
+        http://www.jfrog.com/confluence/display/RTF/Artifactory+REST+API#ArtifactoryRESTAPI-AllBuilds
+        """
+        api_call = "api/build"
+
+        url = urljoin(self.base_url, api_call)
+
+        request = get(url, auth=(self.user, self.password))
+
+        debug_print(request)
 
     def get_users(self):
         """
@@ -33,6 +47,4 @@ class Artifactory(object):
 
         request = get(url, auth=(self.user, self.password))
 
-        debug("http response.url: {}".format(request.url))
-        debug("http response.status_code: {}".format(request.status_code))
-        debug("text response returned: {}".format(request.text))
+        debug_print(request)
